@@ -1,2 +1,1 @@
-# Cargoloop
 # Cargoloop-HackTM
