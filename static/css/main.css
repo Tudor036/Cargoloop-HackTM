@@ -8,8 +8,16 @@
 
 body {
     position: relative;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
+header,
 aside {
     position: absolute;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
 }

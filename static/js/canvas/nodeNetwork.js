@@ -1,19 +1,19 @@
 import Node from "./node.js";
-
 class NodeNetwork {
-    constructor(ctx, nodes) {
+    constructor(nodes) {
         this.nodes = nodes;
+    }
 
-        this.draw(ctx);
+    getOtherNodes(ids) {
+        return this.nodes.filter(node => {
+            return ids.includes(node.id) ? [node.x, node.y] : null;
+        });
     }
 
     draw(ctx) {
         this.nodes.forEach((n) => {
-            const id = n.bound[1];
-            const otherNode = this.nodes.filter(node => node.id === id);
-
-            const node = new Node(ctx, n.x, n.y, [[n.x, n.y], [otherNode.x, otherNode.y]], n.id);
-            console.log(node);
+            const otherNodes = this.getOtherNodes(n.bound);
+            const node = new Node(ctx, n.x, n.y, otherNodes, n.id);
         });
     }
 }

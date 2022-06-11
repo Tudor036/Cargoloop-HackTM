@@ -8,11 +8,12 @@ class Line {
         this.draw(ctx)
     }
 
-    draw(context) {
-        context.beginPath();
-        context.moveTo(this.beginX, this.beginY);
-        context.lineTo(this.endX, this.endY);
-        context.stroke();
+    draw(ctx) {
+        ctx.beginPath();
+        ctx.strokeStyle = "black";
+        ctx.moveTo(this.beginX, this.beginY);
+        ctx.lineTo(this.endX, this.endY);
+        ctx.stroke();
     }
 }
 
