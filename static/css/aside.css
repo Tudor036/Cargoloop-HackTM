@@ -1,0 +1,61 @@
+header aside {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    height: 100vh;
+    width: 280px;
+    padding: 1em;
+
+    background-color: cadetblue;
+
+    position: absolute;
+    top: 0;
+    right: -100%;
+
+    transition: all 500ms;
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+    z-index: 0;
+}
+
+header aside form {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    gap: 1em;
+    height: 40%;
+    z-index: 10;
+}
+
+header aside form label {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header aside form input {
+    width: 200px;
+    outline: none;
+    border: none;
+    padding: .5em 1em;
+}
+
+header aside form button {
+    padding: .5em 1em;
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: white;
+    border: none;
+}
+
+header #menu-input {
+    display: none;
+}
+
+header aside form #submit-message {
+    background-color: white;
+    padding: .5em;
+    color: gray;
+}

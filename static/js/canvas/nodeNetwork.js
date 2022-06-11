@@ -2,6 +2,9 @@ import Node from "./node.js";
 class NodeNetwork {
     constructor(nodes) {
         this.nodes = nodes;
+        console.log(nodes);
+        this.start = 3;
+        this.end = 5;
     }
 
     getOtherNodes(ids) {
@@ -13,8 +16,20 @@ class NodeNetwork {
     draw(ctx) {
         this.nodes.forEach((n) => {
             const otherNodes = this.getOtherNodes(n.bound);
-            const node = new Node(ctx, n.x, n.y, otherNodes, n.id);
+            new Node(ctx, n.x, n.y, otherNodes, n.id);
         });
+    }
+
+    setStart(startNr) {
+        this.start = startNr;
+    }
+
+    setEnd(endNr) {
+        this.end = endNr;
+    }
+
+    defineRoadmap() {
+        filter
     }
 }
 

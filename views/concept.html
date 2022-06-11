@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/aside.css">
+    <title>ShippingLoop</title>
+    <script src="https://kit.fontawesome.com/de979365f6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>ShippingLoop</h1>
+        <input title="menu" type="checkbox" name="menu-input" id="menu-input">
+        <label for="menu-input">
+            <i id="menu-open" class="fa-solid fa-bars"></i>
+        </label>
+        <aside>
+            <label for="menu-input">
+                <i id="menu-close" class="fa-solid fa-xmark"></i>
+            </label>
+            <nav>
+                <a href="/">Default</a>
+                <a href="/openstreetmap">Map</a>
+            </nav>
+            <form id="menu-form">
+                <label for="start">Start Node
+                    <input required type="number" name="start">
+                </label>
+                <label for="end">End Node
+                    <input required type="number" name="end">
+                </label>
+                <label for="ip">Ip Address
+                    <input required type="text" name="ip">
+                </label>
+                <label for="port">Port
+                    <input required type="text" name="port">
+                </label>
+                <button type="submit">Select</button>
+
+                <p id="submit-message">Complete the form and ship a package!</p>
+            </form>
+        </aside>
+    </header>
+    
+    <main>
+        <canvas id="canvas-map"></canvas>
+    </main>
+        <script type="module" src="/js/concept.js"></script>
+</body>
+</html>

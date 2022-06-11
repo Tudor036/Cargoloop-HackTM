@@ -1,0 +1,45 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+
+    background-color: cadetblue;
+    width: 100%;
+    color: white;
+    position: relative;
+
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+    z-index: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: 2em;
+}
+
+nav a {
+    color: white;
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    text-transform: capitalize;
+}
+
+#menu-open,
+#menu-close {
+    font-size: 1.5em;
+}
+
+header #menu-input:checked~label #menu-close {
+    display: none;
+}
+
+header #menu-input:checked~aside {
+    right: 0;
+}

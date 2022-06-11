@@ -1,20 +1,22 @@
 import NodeNetwork from "./nodeNetwork.js";
-import { nodes } from "./info.js";
 
 const canvas = document.getElementById("canvas-map");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 
-window.addEventListener("resize", () => {
+document.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     init();
 });
 
-function init() {
+function init(nodes) {
+    console.log("reached init function!")
     const network = new NodeNetwork(nodes);
     network.draw(ctx)
 }
 
-init();
+export default (nodes) => {
+    return init(nodes);
+};
