@@ -3,21 +3,22 @@
 import init from "./canvas/main.js";
 
 async function getNodes() {
-    const jsonRes = await fetch("/dataset");
+    const jsonRes = await fetch("/conceptPass");
     const res = await jsonRes.json()
 
-    console.log(JSON.parse(res));
     return JSON.parse(res);
 }
 
 function sendMessage(errMessage, color) {
     const e = document.getElementById('submit-message');
     e.style.color = color;
+    e.style.backgroundColor = "white";
     e.textContent = errMessage;
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
-    init(await getNodes());
+    const nodes = await getNodes()
+    init(nodes, 1, 3);
     const form = document.getElementById("menu-form");
 
     form.addEventListener("submit", async (event) => {
@@ -27,7 +28,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         const end = event.target.end.value;
         const ip = event.target.ip.value;
         const port = event.target.port.value;
-        console.log(start, end, ip, port);
+        init(nodes, start, end);
+
+        console.log("Data from concept.js ", start, end)
 
         await fetch('/sendRoad', {
             method: "POST",
@@ -38,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }).then(() => {
             sendMessage("success", "green");
         }).catch((err) => {
-            sendMessage(err.message, "red");
+            sendMessage(`Error: ${err.message}`, "red");
         })
     });
 })

@@ -5,17 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/aside.css">
-    <title>WormDelivery</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <title>Open Street Map</title>
     <script src="https://kit.fontawesome.com/de979365f6.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <a href="/">
-            <h1>WormDelivery</h1>
-        </a>
-        <input title="menu" type="checkbox" name="menu-input" id="menu-input">
+        <h1>WormDelivery</h1>
+        <input title="menu-input" type="checkbox" name="menu-input" id="menu-input">
         <label for="menu-input">
             <i id="menu-open" class="fa-solid fa-bars"></i>
         </label>
@@ -24,7 +22,7 @@
                 <i id="menu-close" class="fa-solid fa-xmark"></i>
             </label>
             <nav>
-                <a href="/map">Map</a>
+                <a href="/concept">Concept</a>
             </nav>
             <form id="menu-form">
                 <label for="start">Start Node
@@ -55,6 +53,6 @@
     <main>
         <canvas id="canvas-map"></canvas>
     </main>
-        <script type="module" src="/js/concept.js"></script>
+        <script type="module" src="/bundles/map.bundle.js"></script>
 </body>
 </html>

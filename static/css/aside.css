@@ -18,6 +18,11 @@ header aside {
     z-index: 0;
 }
 
+header aside nav {
+    display: grid;
+    place-items: center;
+}
+
 header aside form {
     display: flex;
     flex-direction: column;
@@ -35,7 +40,8 @@ header aside form label {
     justify-content: center;
 }
 
-header aside form input {
+header aside form input,
+header aside form select {
     width: 200px;
     outline: none;
     border: none;
@@ -55,7 +61,6 @@ header #menu-input {
 }
 
 header aside form #submit-message {
-    background-color: white;
     padding: .5em;
     color: gray;
 }

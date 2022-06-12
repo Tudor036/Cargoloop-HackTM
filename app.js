@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 import ejs from 'ejs';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-
+ 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -26,19 +26,24 @@ app.use('/js', express.static(path.join(__dirname, 'static')));
 app.set("view engine", "html");
 
 app.get('/', (req, res) => {
-    res.render("concept.html");
+    res.render("home.html");
 });
 
-app.get('/openstreetmap', (req, res) => {
-    res.render('openstreetmap.html');
+app.get('/concept', (req, res) => {
+    res.render("concept.html")
 })
 
-app.get("/dataset", (req, res) => {
+app.get('/map', (req, res) => {
+    res.render('map.html');
+})
+
+app.get("/conceptPass", (req, res) => {
     res.status(200).json(dataset);
 })
 
 app.post('/sendRoad', (req, res) => {
-    const { ip, port } = req.body;
+    const { end, ip, port } = req.body;
+    console.log(req.body);
 
     const client = new net.Socket();
 
@@ -52,7 +57,7 @@ app.post('/sendRoad', (req, res) => {
 
     client.on("connect", () => {
         console.log("Connected!");
-        client.write("1-2-3");
+        client.write((end-2).toString());
         console.log("Data sent!");
     })
 

@@ -1,10 +1,12 @@
 import Node from "./node.js";
 class NodeNetwork {
-    constructor(nodes) {
+    constructor(nodes, start = 1, end = 3) {
         this.nodes = nodes;
-        console.log(nodes);
-        this.start = 3;
-        this.end = 5;
+
+        this.startNode = 1;
+        this.intermediateNodes = [2];
+        this.endNode = end;
+        console.log(this.startNode, this.endNode);
     }
 
     getOtherNodes(ids) {
@@ -16,7 +18,17 @@ class NodeNetwork {
     draw(ctx) {
         this.nodes.forEach((n) => {
             const otherNodes = this.getOtherNodes(n.bound);
-            new Node(ctx, n.x, n.y, otherNodes, n.id);
+
+            let start, intermediate, end;
+            if(n.id === this.startNode) {
+                start = true;
+            } else if(n.id == this.endNode) {
+                end = true;
+            } else if(this.intermediateNodes.includes(n.id)) {
+                intermediate = true;
+            }
+
+            new Node(ctx, n.x, n.y, otherNodes, n.id, start, intermediate, end);                
         });
     }
 
@@ -26,10 +38,6 @@ class NodeNetwork {
 
     setEnd(endNr) {
         this.end = endNr;
-    }
-
-    defineRoadmap() {
-        filter
     }
 }
 
