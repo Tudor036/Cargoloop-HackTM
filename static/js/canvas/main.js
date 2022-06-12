@@ -16,7 +16,6 @@ document.addEventListener("resize", () => {
 });
 
 function init(nodes, startNode, endNode) {
-    console.log(startNode, endNode);
     const network = new NodeNetwork(nodes, startNode, endNode);
     network.draw(ctx);
 }

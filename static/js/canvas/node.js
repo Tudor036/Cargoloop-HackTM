@@ -14,13 +14,9 @@ class Node {
         this.connect(this.ctx);
 
         if(start) {
-            console.log("Start Node: ", this.id)
             this.setStart();
-            console.log("set to start");
         } else if(end) {
-            console.log("End Node: ", this.id)
             this.setEnd();
-            console.log("set to end")
         } else if(intermediate) {
             this.setIntermediate();
         } else {

@@ -9,11 +9,19 @@ async function getNodes() {
     return JSON.parse(res);
 }
 
-function sendMessage(errMessage, color) {
+function showMessage(errMessage, color) {
     const e = document.getElementById('submit-message');
     e.style.color = color;
     e.style.backgroundColor = "white";
     e.textContent = errMessage;
+
+    setTimeout(unshowMessage, 2000)
+}
+
+function unshowMessage() {
+    const e = document.getElementById('submit-message');
+    e.style.backgroundColor = "transparent";
+    e.textContent = "";
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -24,24 +32,27 @@ document.addEventListener("DOMContentLoaded", async function () {
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const start = event.target.start.value;
-        const end = event.target.end.value;
+        const start = Number(event.target.start.value);
+        const end = Number(event.target.end.value);
         const ip = event.target.ip.value;
         const port = event.target.port.value;
         init(nodes, start, end);
 
-        console.log("Data from concept.js ", start, end)
-
-        await fetch('/sendRoad', {
+        const res = await fetch('/sendRoad', {
             method: "POST",
             headers: {
+                'Accept': 'application/json',
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ start, end, ip, port })
-        }).then(() => {
-            sendMessage("success", "green");
         }).catch((err) => {
-            sendMessage(`Error: ${err.message}`, "red");
+            showMessage(`Error: ${err.message}`, "red");
         })
+        
+        if(res != undefined) {
+            showMessage("success!", "green");
+        } else {
+            showMessage("error!", "red");
+        }
     });
 })

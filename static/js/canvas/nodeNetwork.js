@@ -6,7 +6,6 @@ class NodeNetwork {
         this.startNode = 1;
         this.intermediateNodes = [2];
         this.endNode = end;
-        console.log(this.startNode, this.endNode);
     }
 
     getOtherNodes(ids) {

@@ -12,6 +12,8 @@ body {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     position: relative;
     height: 100vh;
     overflow: hidden;
@@ -21,12 +23,16 @@ body {
 }
 
 main {
+    display: flex;
+    flex-direction: row;
     width: min-content;
+    justify-content: stretch;
 }
 
 canvas {
     width: 100vw;
     height: auto;
+    margin: auto;
 }
 
 @media only screen and (min-width: 768px) {
